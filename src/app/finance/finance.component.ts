@@ -2,14 +2,15 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { HeaderEmployeeComponent} from '../header-employee/header-employee.component';
-import { MainFinanceComponent} from '../main-finance/main-finance.component';
+import { HeaderAdminComponent} from '../header-admin/header-admin.component';
+import { HistoryComponent} from '../history/history.component';
 import { FooterEmployeeComponent} from '../footer-employee/footer-employee.component';
+import { CommandeComponent } from "../commande/commande.component";
 
 @Component({
   selector: 'app-finance',
   standalone: true,
-  imports: [HeaderEmployeeComponent, MainFinanceComponent,FooterEmployeeComponent],
+  imports: [HeaderAdminComponent, HistoryComponent, FooterEmployeeComponent, CommandeComponent],
   templateUrl: './finance.component.html',
   styleUrl: './finance.component.css'
 })

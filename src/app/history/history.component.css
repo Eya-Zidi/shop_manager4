@@ -406,3 +406,25 @@ td {
   background-color: #d4edda !important;
 }
 
+
+
+input[type="button"] {
+  background-color: #007bff;      /* Bleu bootstrap */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+input[type="button"]:hover {
+  background-color: #0056b3;     /* Bleu plus foncé au hover */
+}
+
+input[type="button"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.5);
+}

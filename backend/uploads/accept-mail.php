@@ -15,7 +15,7 @@ $mail = new PHPMailer(true);
 require_once("../auth/connexion.php");
 file_put_contents("debug.txt", file_get_contents("php://input"));
 
-// Récupérer les données JSON du frontend
+
 $data = json_decode(file_get_contents("php://input"), true);
 $id = $data['id'] ?? null;
 $reason = $data['reason'] ?? '';
@@ -27,8 +27,8 @@ if (!$id || !$reason) {
 
 try {
 
-    // Récupérer l'email correspondant à la demande
-    $stmt = $pdo->prepare("SELECT email FROM demande_devis WHERE id = ?");
+
+    $stmt = $pdo->prepare("SELECT email FROM demande_achat WHERE id = ?");
     $stmt->execute([$id]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -43,10 +43,10 @@ try {
 
         // Envoi de l'email
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  // Or your SMTP server
+        $mail->Host = 'smtp.gmail.com'; 
         $mail->SMTPAuth = true;
         $mail->Username = 'eyazidi2000@gmail.com';
-        $mail->Password = 'gacqdsxiufevlkpm';  // Use App Password, not your real Gmail password
+        $mail->Password = 'gacqdsxiufevlkpm';  
         $mail->SMTPSecure = 'tls'; 
         $mail->Port = 587;
 

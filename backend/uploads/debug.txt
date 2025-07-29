@@ -1,1 +1,1 @@
-{"id":"","company":"","pieceNumber":"","pieceName":"","quantity":"","unitPrice":"","guarantees":"","paymentMethod":"","quote":""}
+{"id2":"1","id":1,"reason":"accept","selectedDevisId":1}

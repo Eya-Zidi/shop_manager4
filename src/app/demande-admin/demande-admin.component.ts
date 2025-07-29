@@ -4,13 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HeaderEmployeeComponent } from '../header-employee/header-employee.component';
+import { HeaderDirecteurComponent } from '../header-directeur/header-directeur.component';
 import { FooterComponent } from '../footer/footer.component';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+
 
 @Component({
   selector: 'app-demande-admin',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, HeaderEmployeeComponent, FooterComponent],
+  imports: [CommonModule, RouterModule, FormsModule, HeaderDirecteurComponent, FooterComponent],
   templateUrl: './demande-admin.component.html',
   styleUrls: ['./demande-admin.component.css']
 })
@@ -18,8 +21,9 @@ export class DemandeAdminComponent {
   id!: string;
   devisList: any[] = [];  // plusieurs devis
   devis: any = {};
-  requestNumber: string = '';
+  num: string = '';
   reason = '';
+
   showRejectPopup = false;
   showAcceptPopup = false;
 
@@ -37,7 +41,7 @@ export class DemandeAdminComponent {
       .subscribe(response => {
         if (response.success) {
           this.devisList = response.devis;
-          this.requestNumber = response.requestNumber;
+          this.num = response.num;
         } else {
           console.error('Erreur backend devis:', response.message);
         }
@@ -91,6 +95,55 @@ export class DemandeAdminComponent {
         }
       );
   }
+
+
+  exportPDF(index : number){
+    const dev=this.devisList[index];
+    console.log('Selected devis:', dev);
+    const doc = new jsPDF();
+
+    // 🏷️ Add Title
+    doc.setFontSize(18);
+    doc.text('Devis'+String(index+1), 14, 20); // x=14, y=20
+
+    // 📋 Table headers
+    const head = [[
+      'Référence',
+    
+      'Désignation',
+      'Qte',
+      'Prix unitaire',
+      'Remise',
+      'Montant HT',
+      'TVA'
+    ]];
+
+    // 📦 One row of data
+    const data = [[
+      String(dev.reference),
+      
+      String(dev.libelles),
+      String(dev.quantity),
+      String(dev.p_unitaire),
+      String(dev.remise),
+      String(dev.p_totale),
+      String(dev.TVA)
+    ]];
+
+    // 📄 Add table below title
+    autoTable(doc, {
+      head: head,
+      body: data,
+      startY: 30, // Push below the title
+      styles: { fontSize: 10 },
+      headStyles: { fillColor: [22, 160, 133] } // Optional: green header
+    });
+
+    // 💾 Save the PDF
+    doc.save('devis.pdf');
+
+  }
+
 
   confirmAccept() {
     const formData = new FormData();

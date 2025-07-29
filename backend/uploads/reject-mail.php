@@ -28,7 +28,7 @@ if (!$id || !$reason) {
 try {
 
     // Récupérer l'email correspondant à la demande
-    $stmt = $pdo->prepare("SELECT email FROM demande_devis WHERE id = ?");
+    $stmt = $pdo->prepare("SELECT email FROM demande_achat WHERE id = ?");
     $stmt->execute([$id]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 

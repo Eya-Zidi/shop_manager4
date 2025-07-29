@@ -19,43 +19,35 @@ export class MainEmployeeComponent {
   showPopup2 = false;
 
   demandeForm: any = {
-    requestDate: '',
-    requestNumber: '',
-    from: '',
-    to: '',
-    description: '',
-    requiredDate: '',
-    estimatedCost: '',
-    justification: '',
-    
-    company: '',
+    reference: '',
+    libelles: '',
     categorie: '',
-    pieceNumber: '',
-    pieceName: '',
     quantity: '',
-    unitPrice: '',
-    guarantees: '',
-    paymentMethod: '',
+    p_unitaire: '',
+    p_totale: '',
+    remise: '',
+    tva: '',
     quote: false,
 
-    company2: '',
+    reference2: '',
+    libelles2: '',
     categorie2: '',
-    pieceNumber2: '',
-    pieceName2: '',
     quantity2: '',
-    unitPrice2: '',
-    guarantees2: '',
-    paymentMethod2: '',
+    p_unitaire2: '',
+    p_totale2: '',
+    remise2: '',
+    tva2: '',
     quote2: false,
 
-    company3: '',
+    reference3: '',
+    libelles3: '',
     categorie3: '',
-    pieceNumber3: '',
-    pieceName3: '',
     quantity3: '',
-    unitPrice3: '',
-    guarantees3: '',
-    paymentMethod3: ''
+    p_unitaire3: '',
+    p_totale3: '',
+    remise3: '',
+    tva3: '',
+  
   };
 
   constructor(private demandeService: DemandeService, private http: HttpClient) {}
@@ -71,7 +63,7 @@ export class MainEmployeeComponent {
 
   closePopup() {
     this.showPopup = false;
-    this.demandeForm.quote = false; // décocher le checkbox aussi si popup fermé
+    this.demandeForm.quote = false; 
   }
 
   submitDemandeDevis(): void {
@@ -89,7 +81,7 @@ export class MainEmployeeComponent {
   }
 
   confirmadd() {
-    // Logique pour confirmer l'ajout, appeler l'API et envoyer mail (comme tu avais)
+
     const formData = new FormData();
 
     for (const key in this.demandeForm) {

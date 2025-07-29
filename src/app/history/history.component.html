@@ -7,8 +7,16 @@
 
       <div class="container correct">
         <div class="sidebar">
-          <h2>Catégory :</h2>
+          
           <nav>
+            <h2>Situation :</h2>
+
+            <input type="radio" name="option" id="option1"> pending <br><br>
+            <input type="radio" name="option" id="option2">commande <br><br>
+            <input type="radio" name="option" id="option3">stock <br><br>
+            <input type="radio" name="option" id="option4">rejected<br><br>
+
+            <h2>Catégory :</h2>
             <input type="checkbox" name="catégorie" id="cat1">Pièce birotique <br> <br>
             <input type="checkbox" name="catégorie" id="cat2">Accessoire et Connectivité <br> <br>
             <input type="checkbox" name="catégorie" id="cat3">Pièce industrielle <br><br>
@@ -43,6 +51,7 @@
                         <th>Guarantees</th>
                         <th>Payment Methode</th>
                         <th>Situation</th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -57,6 +66,11 @@
                         <td [ngClass]="getColorClass(item.situation)">{{ item.guarantees }}</td>
                         <td [ngClass]="getColorClass(item.situation)">{{ item.payment_method }}</td>
                         <td [ngClass]="getColorClass(item.situation)">{{ item.situation }}</td>
+                        <div [ngClass]="getColorClass(item.situation)">
+                          <td  *ngIf="situationFilter === 'pending' && item.situation === 'pending'">
+                            <input type="button" value="Update" (click)="UpdateRequest(item)">
+                          </td>
+                        </div> 
                       </tr>
                     </tbody>
 

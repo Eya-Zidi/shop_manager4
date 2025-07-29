@@ -1,18 +1,26 @@
-<app-header-employee></app-header-employee>
+
 <div class="background">
   <div class="overlay">
     <div class="row justify-content-center" style="margin-top: 20px; height:1000px;">
       
       
 
-      <div class="container">
+      <div class="container correct">
         <div class="sidebar">
-          <h2>Catégory :</h2>
+          
           <nav>
+            <h2>Situation :</h2>
+
+            <input type="radio" name="option" id="option1"> pending <br><br>
+            <input type="radio" name="option" id="option2">commande <br><br>
+            <input type="radio" name="option" id="option3">stock <br><br>
+            <input type="radio" name="option" id="option4">rejected<br><br>
+
+            <h2>Catégory :</h2>
             <input type="checkbox" name="catégorie" id="cat1">Pièce birotique <br> <br>
             <input type="checkbox" name="catégorie" id="cat2">Accessoire et Connectivité <br> <br>
             <input type="checkbox" name="catégorie" id="cat3">Pièce industrielle <br><br>
-            <input type="checkbox" name="catégorie" id="cat4">Pièce éléctroniquebr
+            <input type="checkbox" name="catégorie" id="cat4">Pièce éléctronique 
             <br>
             <h2>Amount :</h2>
             <input type="radio" name="option" id="op1"> Display all the prices <br><br>
@@ -29,39 +37,55 @@
           <div class="top-bar">
             
 
-            <div class="article-table">
-              <div class="col-6 login-box">
                   <h2>Request</h2>
-                  <table class="table">
+                  <table *ngIf="links.length">
                     <thead>
                       <tr>
-                        <th>Liens</th>
+                        <th>Demande d'achat N° </th>
+                        <th>Réfèrence</th>
+                        <th>Désignation</th>
+                        <th>Quantité</th>
+                        <th>Prix Unitaire</th>
+                        <th>Remise</th>
+                        <th>Montant HT</th>
+                        <th>TVA</th>
+                        <th>Situation</th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let item of links">
-                        <td>
-                          <a [routerLink]="['/demande', item.id]" >{{ item.piece_name }} &nbsp;{{ item.description }}</a>
-                        </td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.num }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.reference }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.libelles}}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.quantity }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.p_unitaire }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.remise }} TND</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.p_totale}} TND</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.TVA }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.situation}}</td>
+
+                        <div [ngClass]="getColorClass(item.situation)">
+                          <td  *ngIf="situationFilter === 'pending' && item.situation === 'pending'">
+                            <input type="button" value="Update" (click)="UpdateRequest(item)">
+                          </td>
+                        </div> 
                       </tr>
                     </tbody>
+
                   </table>
 
-              </div>
-                
+            <br><br><br>
             </div>
+          </div>
+        </div>
+
+      
+
     </div>
   </div>
 </div>
 
-      
-      
-
-    </div>
-  </div>
-</div>
 
 
-
-<app-footer-employee></app-footer-employee>
 

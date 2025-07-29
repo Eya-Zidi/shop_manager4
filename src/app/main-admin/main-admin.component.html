@@ -40,7 +40,7 @@
                     <tbody>
                       <tr *ngFor="let item of links">
                         <td>
-                          <a [routerLink]="['/demande', item.id]" >{{ item.piece_name }} &nbsp;{{ item.description }}</a>
+                          <a [routerLink]="['/demande', item.id]" >{{ item.reference }} &nbsp;{{ item.libelles }}</a>
                         </td>
                       </tr>
                     </tbody>

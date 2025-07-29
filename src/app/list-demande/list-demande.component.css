@@ -36,7 +36,7 @@
 
 .background {
   min-height: 100vh; 
-  height: 100%;      
+  height: auto;      
   background: url('phoenix.webp') no-repeat center center/cover;
   position: relative;
   
@@ -46,7 +46,7 @@
 .overlay {
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.4);
-  height: 100%;
+  height: auto;
   min-height: 100%;
   display: flex;
   justify-content: center;
@@ -202,22 +202,31 @@ h2{
   text-decoration: underline;
 }
 
-
+.correct{
+  overflow-y: auto;
+  margin-bottom:20px ;
+}
 
 .container {
   display: flex;
   height: 100%;
-  padding-right: 400px;
+  padding-right: 200px;
+
   
 }
 
 .sidebar {
-  width: 270px;
+  width: 300px;
   background-color: #1f2d3d;
   color: white;
   padding: 20px;
+  margin: 0px;
+
+  position:absolute;
+  top: 0px;
+  left: 0px;
   
-  
+  height: 98%;
 }
 
 .sidebar h2 {
@@ -263,7 +272,589 @@ h2{
 .main-content {
   flex: 1;
   padding: 100px;
-  margin-left: 200px;
+  margin-left: 350px;
   
  
+}
+
+
+.article-table {
+  padding: 40px;
+}
+
+.article-table h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a237e;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.article-table table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.article-table thead {
+  background-color: #30367c;
+  color: white;
+}
+
+.article-table th,
+.article-table td {
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  border-bottom: 1px solid #ddd;
+}
+
+.article-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.article-table th {
+  font-weight: bold;
+  color: white;
+}
+
+.article-table td {
+  color: #333;
+}
+
+.article-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+
+.article-table{
+  padding-right: 500px;
+}
+
+
+
+
+
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #1a237e;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #3f51b5;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #e3f2fd;
+  transition: background-color 0.3s ease;
+}
+
+td {
+  color: #333;
+}
+.table-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+  background-color: #fafafa;
+  border-radius: 10px;
+}
+
+
+
+/*couleurs*/
+.cell-rejected {
+  background-color: #ffcccc !important;
+}
+
+.cell-pending {
+  background-color: #cce5ff !important;
+}
+
+.cell-commande {
+  background-color: #d4edda !important;
+}
+
+
+
+input[type="button"] {
+  background-color: #007bff;      /* Bleu bootstrap */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+input[type="button"]:hover {
+  background-color: #0056b3;     /* Bleu plus foncé au hover */
+}
+
+input[type="button"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.5);
+}
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.brand {
+  color: darkred;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: darkred;
+  font-weight: bold;
+}
+
+.background {
+  min-height: 100vh; 
+  height: auto;      
+  background: url('phoenix.webp') no-repeat center center/cover;
+  position: relative;
+  
+}
+
+
+.overlay {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4);
+  height: auto;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.626);
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #b30000;
+}
+
+.login-box label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-box button {
+  background-color: #8b0000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #a00000;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: red;
+  background-color: white;
+  font-size: 1.1rem;
+}
+
+
+.row.overlay {
+  display: flex;
+  justify-content: space-between; 
+  padding: 0 40px; 
+}
+.login-box {
+  width: 45%; 
+}
+
+.form-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  width: 100%;
+  font-weight: bold;
+}
+.form-row {
+  display: flex;
+  gap: 20px; 
+}
+
+.form-group {
+  flex: 1; 
+}
+
+textarea {
+  width: 300px;
+  height: 100px;
+}
+.main-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+h2{
+  color: #1a237e !important;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size:25px;
+}
+
+
+
+/* Table inside login-box */
+.login-box .table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.login-box .table thead {
+  background-color: #30367c;
+  border: 1px solid #3c3c3c;
+  box-shadow: 0 0 6px black;
+  color: white;
+}
+
+.login-box .table th,
+.login-box .table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size:20px;
+}
+
+.login-box .table th {
+  color: white !important;
+}
+
+.login-box .table td{
+  border-bottom: 1px solid #30367c;
+}
+
+.login-box .table tbody tr td a{
+  color: #1a237e !important;
+}
+
+.login-box .table thead tr:hover {
+  background-color: #474b7c;
+}
+
+.login-box .table a {
+  color: #8b0000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-box .table a:hover {
+  text-decoration: underline;
+}
+
+.correct{
+  overflow-y: auto;
+  margin-bottom:20px ;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  padding-right: 200px;
+
+  
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #1f2d3d;
+  color: white;
+  padding: 20px;
+  margin: 0px;
+
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  
+  height: 98%;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  color: #c1c1f4 !important;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size:25px;
+}
+
+
+.sidebar nav label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sidebar input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.validate-btn {
+  background-color: #83a7ea; /* vert sympa */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(248, 252, 249, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.validate-btn:hover {
+  background-color: #cdcfd1; /* vert foncé au survol */
+  box-shadow: 0 6px 12px rgba(33, 136, 56, 0.6);
+}
+.main-content {
+  flex: 1;
+  padding: 100px;
+  margin-left: 350px;
+  
+ 
+}
+
+
+.article-table {
+  padding: 40px;
+}
+
+.article-table h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a237e;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.article-table table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.article-table thead {
+  background-color: #30367c;
+  color: white;
+}
+
+.article-table th,
+.article-table td {
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  border-bottom: 1px solid #ddd;
+}
+
+.article-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.article-table th {
+  font-weight: bold;
+  color: white;
+}
+
+.article-table td {
+  color: #333;
+}
+
+.article-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+
+.article-table{
+  padding-right: 500px;
+}
+
+
+
+
+
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #1a237e;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #3f51b5;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #e3f2fd;
+  transition: background-color 0.3s ease;
+}
+
+td {
+  color: #333;
+}
+.table-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+  background-color: #fafafa;
+  border-radius: 10px;
+}
+
+
+
+/*couleurs*/
+.cell-rejected {
+  background-color: #ffcccc !important;
+}
+
+.cell-pending {
+  background-color: #cce5ff !important;
+}
+
+.cell-commande {
+  background-color: #d4edda !important;
+}
+
+
+
+input[type="button"] {
+  background-color: #007bff;      /* Bleu bootstrap */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+input[type="button"]:hover {
+  background-color: #0056b3;     /* Bleu plus foncé au hover */
+}
+
+input[type="button"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.5);
 }

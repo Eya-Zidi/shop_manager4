@@ -50,7 +50,7 @@ export class CommandeComponent {
     .subscribe(response => {
       if(response.success) {
         alert('Your order has been received and is now in stock');
-        this.loadAll(); // recharge la liste pour voir le changement
+        this.loadAll(); 
       } else {
         alert('Echec' + response.message);
       }

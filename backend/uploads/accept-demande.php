@@ -21,7 +21,7 @@ try {
         exit;
     }
 
-    // Vérifier si la ligne existe
+    
     $stmtCheck = $pdo->prepare("SELECT id, situation FROM demande_achat WHERE id = ?");
     $stmtCheck->execute([$id]);
     $row = $stmtCheck->fetch(PDO::FETCH_ASSOC);
@@ -32,12 +32,12 @@ try {
     }
 
     // Mettre à jour la situation
-    $stmtUpdate = $pdo->prepare("UPDATE demande_achat SET situation = 'rejected' WHERE id = ?");
+    $stmtUpdate = $pdo->prepare("UPDATE demande_achat SET situation = 'commande' WHERE id = ?");
     $success = $stmtUpdate->execute([$id]);
 
     echo json_encode([
         'success' => $success,
-        'message' => $success ? 'Demande mise à jour avec succès.' : 'Erreur lors de la mise à jour.'
+        'message' => $success ? 'Demande accepter' : 'Erreur lors de l acceptation.'
     ]);
 
 } catch (PDOException $e) {

@@ -17,7 +17,11 @@ if ($user && $password == $user['password']) {
     $_SESSION['role'] = $user['role'];
     $_SESSION['role_expire'] = time() + 5;
     $_SESSION['user_id'] = $user['id'];
-    header("Location: " . $_SERVER['HTTP_REFERER']. $user['role']);
+    if ($user['role']!='employee'){
+        header("Location: " . $_SERVER['HTTP_REFERER']. $user['role']);
+    }else{
+        header("Location: " . $_SERVER['HTTP_REFERER']. $user['role'].'/'.$user['id']);
+    }
     exit();
 }
 else{

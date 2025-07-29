@@ -6,7 +6,13 @@ header("Content-Type: application/json");
 require_once("../auth/connexion.php");
 
 try {
-    $stmtDevis = $pdo->query("SELECT * FROM demande_devis where situation = 'pending' ORDER BY id DESC");
+    $stmtDevis = $pdo->query("SELECT *
+                                    FROM (
+                                    SELECT *, ROW_NUMBER() OVER (PARTITION BY num ORDER BY id ASC) AS rn
+                                    FROM demande_achat
+                                    ) AS sub
+                                    WHERE rn = 1 and situation='pending' order by id Desc;");
+
     $devisList = $stmtDevis->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode([
