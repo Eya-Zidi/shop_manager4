@@ -1,0 +1,45 @@
+<div class="header">
+  <h1>
+    <img [src]="logo">
+    Phoenix Mecano Elcom
+  </h1>
+  <div class="nav">
+    <a href="/">Home</a>
+    <a href="/Sign">Sign up</a>
+    <a href="/contact">Contact</a>
+  </div>
+</div>
+
+<div class="background">
+  <div class="row overlay">
+    <div class="col-6 login-box">
+      <h2>Détail de la Demande</h2>
+      <table class="table table-bordered">
+        <tr><th>ID</th><td>{{ devis.id }}</td></tr>
+        <tr><th>Nom</th><td>{{ devis.name }}</td></tr>
+        <tr><th>Prénom</th><td>{{ devis.lastName }}</td></tr>
+        <tr><th>Employee ID</th><td>{{ devis.employeeId }}</td></tr>
+        <tr><th>Téléphone</th><td>{{ devis.tel }}</td></tr>
+        <tr><th>Email</th><td>{{ devis.email }}</td></tr>
+        <tr><th>Date de la demande</th><td>{{ devis.requestDate }}</td></tr>
+        <tr><th>Numéro de demande</th><td>{{ devis.requestNumber }}</td></tr>
+        <tr><th>Lieu de départ</th><td>{{ devis.from_location }}</td></tr>
+        <tr><th>Lieu d’arrivée</th><td>{{ devis.to_location }}</td></tr>
+        <tr><th>Description</th><td>{{ devis.description }}</td></tr>
+        <tr><th>Date requise</th><td>{{ devis.requiredDate }}</td></tr>
+        <tr><th>Coût estimé</th><td>{{ devis.estimatedCost }}</td></tr>
+        <tr><th>Justification</th><td>{{ devis.justification }}</td></tr>
+        <tr><th>Entreprise</th><td>{{ devis.company }}</td></tr>
+        <tr><th>Nom de pièce</th><td>{{ devis.piece_name }}</td></tr>
+        <tr><th>Numéro de pièce</th><td>{{ devis.piece_number }}</td></tr>
+        <tr><th>Quantité</th><td>{{ devis.quantity }}</td></tr>
+        <tr><th>Prix unitaire</th><td>{{ devis.unit_price }}</td></tr>
+        <tr><th>Garantie</th><td>{{ devis.guarantees }}</td></tr>
+        <tr><th>Mode de paiement</th><td>{{ devis.payment_method }}</td></tr>
+      </table>
+    </div>
+
+    
+
+  </div>
+</div>

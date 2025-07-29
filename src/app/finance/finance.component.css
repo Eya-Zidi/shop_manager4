@@ -1,0 +1,105 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.brand {
+  color: darkred;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: darkred;
+  font-weight: bold;
+}
+
+/* Background */
+.background {
+  height: calc(100vh - 130px);
+  background: url('phoenix.webp') no-repeat center center/cover;
+  position: relative;
+}
+
+.overlay {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #b30000;
+}
+
+.login-box label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-box button {
+  background-color: #8b0000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #a00000;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: red;
+  background-color: white;
+  font-size: 1.1rem;
+}

@@ -1,0 +1,60 @@
+
+
+<app-header-employee></app-header-employee>
+
+<div class="background">
+
+
+  <div class="row overlay">
+    <div class="col-12 login-box">
+          <form (ngSubmit)="createAccount()" #accountForm="ngForm">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" [(ngModel)]="form.fullName" required />
+          </div>
+          <div class="form-group">
+            <label for="fullName">Last Name</label>
+            <input type="text" id="last_name" name="last_name" [(ngModel)]="form.last_name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" [(ngModel)]="form.email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" [(ngModel)]="form.phone" required />
+          </div>
+
+          <div class="form-group">
+            <label for="role">Role</label>
+            <input type="text" id="role" name="role" [(ngModel)]="form.role" required />
+          </div>
+
+          <div class="form-group">
+            <label for="imma">Employee ID</label>
+            <input type="number" id="imma" name="imma" [(ngModel)]="form.imma" required />
+          </div>
+
+          <div class="form-group">
+            <label for="dept">Department</label>
+            <input type="text" id="dept" name="dept" [(ngModel)]="form.dept" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" [(ngModel)]="form.password" required />
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="form.confirmPassword" required />
+          </div>
+
+          <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>

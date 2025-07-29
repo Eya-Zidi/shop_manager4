@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="sidebar">
+    <h2>D-CLIC</h2>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#">Vente</a>
+      <a href="#">Client</a>
+      <a class="active" href="#">Article</a>
+      <a href="#">Fournisseur</a>
+      <a href="#">Commandes</a>
+      <a href="#">Catégorie</a>
+      <a href="#">Analyses</a>
+      <a href="#">Stock</a>
+      <a href="#">Tout les commandes</a>
+      <a href="#">Utilisateur</a>
+      <a href="#">Configuration</a>
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <div class="top-bar">
+      <h2>Article</h2>
+      <input type="text" placeholder="Recherche..." />
+      <button class="search-btn">🔍</button>
+    </div>
+
+    <div class="content-wrapper">
+      <form class="article-form">
+        <input type="text" placeholder="Veuillez saisir le nom" />
+        <select>
+          <option>--Choisir une catégorie--</option>
+        </select>
+        <input type="number" placeholder="Veuillez saisir la quantité" />
+        <input type="number" placeholder="Veuillez saisir le prix" />
+        <input type="datetime-local" />
+        <input type="datetime-local" />
+        <input type="file" />
+        <button type="submit" class="validate-btn">Valider</button>
+      </form>
+
+      <div class="article-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom article</th>
+              <th>Nombre de pièces</th>
+              <th>Quantité</th>
+              <th>Prix unitaire</th>
+              <th>Méthode de paiement</th>
+              <th>Garantie</th>
+              <th>Situation</th>
+              <th>Nom de société</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="devis">
+              <td>{{ devis.id }}</td>
+              <td>{{ devis.piece_name }}</td>
+              <td>{{ devis.piece_number }}</td>
+              <td>{{ devis.quantity }}</td>
+              <td>{{ devis.unit_price }}</td>
+              <td>{{ devis.payment_method }}</td>
+              <td>{{ devis.guarantees }}</td>
+              <td>{{ devis.situation }}</td>
+              <td>{{ devis.company }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

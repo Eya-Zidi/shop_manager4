@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #1f2d3d;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  
+}
+
+
+
+
+
+.sidebar nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.sidebar nav a.active {
+  font-weight: bold;
+  color: #00c0ef;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f6fa;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.top-bar input {
+  padding: 5px 10px;
+  width: 200px;
+}
+
+.search-btn {
+  padding: 5px 10px;
+  background-color: #00c0ef;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.article-form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.article-form input,
+.article-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.validate-btn {
+  background-color: #00c0ef;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.article-table {
+  flex: 1;
+  overflow-x: auto;
+}
+
+.article-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.article-table th,
+.article-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.article-table img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}

@@ -1,0 +1,318 @@
+<div class="background">
+  <div class="row overlay">
+    <div class="col-12 login-box">
+      <form (ngSubmit)="submitDemandeDevis()">
+        <h2> Request Information</h2>
+        
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="date"> Request Date</label>
+            <input type="date" id="requestDate" name="requestDate" [(ngModel)]="demandeForm.requestDate" required />
+          </div>
+
+          <div class="form-group">
+            <label for="number">Request Number</label>
+            <input type="number" id="requestNumber" name="requestNumber" [(ngModel)]="demandeForm.requestNumber" required />
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="lieudep"> De:</label>
+            <input type="text" id="form" name="form" [(ngModel)]="demandeForm.from" required />
+          </div>
+
+          <div class="form-group">
+            <label for="text">A:</label>
+            <input type="text" id="to" name="to" [(ngModel)]="demandeForm.to" required />
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="Name"> Request Description</label>
+            <input type="textarea" id="description" name="description" [(ngModel)]="demandeForm.description" required />
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="date"> Required Date</label>
+            <input type="date" id="requiredDate" name="requiredDate" [(ngModel)]="demandeForm.requiredDate" required />
+          </div>
+
+          <div class="form-group">
+            <label for="cout">Estimated Cost</label>
+            <input type="number" id="estimatedCost" name="estimatedCost" [(ngModel)]="demandeForm.estimatedCost" required />
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="just"> Justification</label>
+            <input type="textarea" id="justification" name="justification" [(ngModel)]="demandeForm.justification" required />
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="company">Name of Company</label>
+          <input type="text" id="company" name="company" [(ngModel)]="demandeForm.company" required />
+        </div>
+        
+        <br>
+
+        <div class="form-row">
+          <label for="Catégorie">Catégorie</label>
+          <select id="Catégorie" name="Categorie" [(ngModel)]="demandeForm.categorie" required>
+            <option value="">Select</option>
+            <option value="pièce birotique">pièce birotique</option>
+            <option value="Accessoires et connectivité">Accessoires et connectivité</option>
+            <option value="pièce industielle">pièce industielle</option>
+            <option value="pièce élèctronique">pièce élèctronique</option>
+          </select>
+        </div>
+        <br>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pieceNumber">Pièce Number</label>
+            <input type="number" id="pieceNumber" name="pieceNumber" [(ngModel)]="demandeForm.pieceNumber" required />
+          </div>
+
+          <div class="form-group">
+            <label for="pieceName">Pièce Name</label>
+            <input type="text" id="pieceName" name="pieceName" [(ngModel)]="demandeForm.pieceName" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" [(ngModel)]="demandeForm.quantity" required />
+          </div>
+
+          <div class="form-group">
+            <label for="unitPrice">Unit Price</label>
+            <input type="number" id="unitPrice" name="unitPrice" [(ngModel)]="demandeForm.unitPrice" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guarantees">Guarantees And Return</label>
+            <textarea id="guarantees" name="guarantees" [(ngModel)]="demandeForm.guarantees" rows="8" cols="50" required></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="paymentMethod">Payment Method</label>
+          <select id="paymentMethod" name="paymentMethod" [(ngModel)]="demandeForm.paymentMethod" required>
+            <option value="">Select</option>
+            <option value="Virement">Virement</option>
+            <option value="Chèque">Chèque</option>
+            <option value="Espèces">Espèces</option>
+          </select>
+        </div>
+        <br>
+
+        <!-- Checkbox pour afficher le formulaire complémentaire -->
+        <div class="form-row">
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="quote"
+              name="quote"
+              class="quote"
+              [(ngModel)]="demandeForm.quote"
+              (change)="togglePopup()"
+            />
+            <label for="quote">Would you like to add another quote?</label>
+          </div>
+        </div>
+
+        <!-- Formulaire additionnel qui s'affiche sous le checkbox -->
+        <div *ngIf="showPopup" class="popup-inline">
+          <h4>Motif d'acceptation</h4>
+
+          <div class="form-group">
+            <label for="company2">Name of Company</label>
+            <input type="text" id="company2" name="company2" [(ngModel)]="demandeForm.company2" required />
+          </div>
+
+          <div class="form-row">
+          <label for="Catégorie2">Catégorie</label>
+          <select id="Catégorie2" name="Categorie2" [(ngModel)]="demandeForm.categorie2" required>
+            <option value="">Select</option>
+            <option value="pièce birotique">pièce birotique</option>
+            <option value="Accessoires et connectivité">Accessoires et connectivité</option>
+            <option value="pièce industielle">pièce industielle</option>
+            <option value="pièce élèctronique">pièce élèctronique</option>
+          </select>
+        </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pieceNumber2">Pièce Number</label>
+              <input type="number" id="pieceNumber2" name="pieceNumber2" [(ngModel)]="demandeForm.pieceNumber2" required />
+            </div>
+
+            <div class="form-group">
+              <label for="pieceName2">Pièce Name</label>
+              <input type="text" id="pieceName2" name="pieceName2" [(ngModel)]="demandeForm.pieceName2" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quantity2">Quantity</label>
+              <input type="number" id="quantity2" name="quantity2" [(ngModel)]="demandeForm.quantity2" required />
+            </div>
+
+            <div class="form-group">
+              <label for="unitPrice2">Unit Price</label>
+              <input type="number" id="unitPrice2" name="unitPrice2" [(ngModel)]="demandeForm.unitPrice2" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guarantees2">Guarantees And Return</label>
+              <textarea id="guarantees2" name="guarantees2" [(ngModel)]="demandeForm.guarantees2" rows="6" cols="50" required></textarea>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="paymentMethod2">Payment Method</label>
+            <select id="paymentMethod2" name="paymentMethod2" [(ngModel)]="demandeForm.paymentMethod2" required>
+              <option value="">Select</option>
+              <option value="Virement">Virement</option>
+              <option value="Chèque">Chèque</option>
+              <option value="Espèces">Espèces</option>
+            </select>
+          </div>
+          <br>
+          
+          
+          <!-- Checkbox pour afficher le formulaire complémentaire -->
+          <div class="form-row">
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="quote2"
+                name="quote2"
+                class="quote"
+                [(ngModel)]="demandeForm.quote2"
+                (change)="togglePopup2()"
+              />
+              <label for="quote">Would you like to add another quote?</label>
+            </div>
+          </div>
+          
+        </div>
+
+
+
+        <!-- Formulaire additionnel qui s'affiche sous le checkbox -->
+        <div *ngIf="showPopup2" class="popup-inline">
+          <h4>Motif d'acceptation</h4>
+
+          <div class="form-group">
+            <label for="company3">Name of Company</label>
+            <input type="text" id="company3" name="company3" [(ngModel)]="demandeForm.company3" required />
+          </div>
+
+          <div class="form-row">
+          <label for="Catégorie3">Catégorie</label>
+          <select id="Catégorie3" name="Categorie3" [(ngModel)]="demandeForm.categorie3" required>
+            <option value="">Select</option>
+            <option value="pièce birotique">pièce birotique</option>
+            <option value="Accessoires et connectivité">Accessoires et connectivité</option>
+            <option value="pièce industielle">pièce industielle</option>
+            <option value="pièce élèctronique">pièce élèctronique</option>
+          </select>
+        </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pieceNumber3">Pièce Number</label>
+              <input type="number" id="pieceNumber3" name="pieceNumber3" [(ngModel)]="demandeForm.pieceNumber3" required />
+            </div>
+
+            <div class="form-group">
+              <label for="pieceName3">Pièce Name</label>
+              <input type="text" id="pieceName3" name="pieceName3" [(ngModel)]="demandeForm.pieceName3" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quantity3">Quantity</label>
+              <input type="number" id="quantity3" name="quantity3" [(ngModel)]="demandeForm.quantity3" required />
+            </div>
+
+            <div class="form-group">
+              <label for="unitPrice23">Unit Price</label>
+              <input type="number" id="unitPrice3" name="unitPrice3" [(ngModel)]="demandeForm.unitPrice3" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guarantees3">Guarantees And Return</label>
+              <textarea id="guarantees3" name="guarantees3" [(ngModel)]="demandeForm.guarantees3" rows="6" cols="50" required></textarea>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="paymentMethod3">Payment Method</label>
+            <select id="paymentMethod3" name="paymentMethod3" [(ngModel)]="demandeForm.paymentMethod3" required>
+              <option value="">Select</option>
+              <option value="Virement">Virement</option>
+              <option value="Chèque">Chèque</option>
+              <option value="Espèces">Espèces</option>
+            </select>
+          </div>
+          <br>
+          
+          
+    
+          
+        </div>
+
+
+
+        <div class="form-row">
+          <button
+            type="submit"
+            class="submit-btn"
+            style="
+              background-color: #1a237e;
+              color: white;
+              padding: 10px 20px;
+              border: 1px solid #00053f;
+              font-weight: bold;
+              border-radius: 5px;
+              cursor: pointer;
+              float: right;
+              margin-right: 10px;
+              font-size: 20px;
+            "
+          >
+            Create Request
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

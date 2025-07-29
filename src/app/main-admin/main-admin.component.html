@@ -1,0 +1,66 @@
+<div class="background">
+  <div class="overlay">
+    <div class="row justify-content-center" style="margin-top: 20px; height:1000px;">
+      
+      
+
+      <div class="container">
+        <div class="sidebar">
+          <h2>Catégory :</h2>
+          <nav>
+            <input type="checkbox" name="catégorie" id="cat1">Pièce birotique <br> <br>
+            <input type="checkbox" name="catégorie" id="cat2">Accessoire et Connectivité <br> <br>
+            <input type="checkbox" name="catégorie" id="cat3">Pièce industrielle <br><br>
+            <input type="checkbox" name="catégorie" id="cat4">Pièce éléctroniquebr
+            <br>
+            <h2>Amount :</h2>
+            <input type="radio" name="option" id="op1"> Display all the prices <br><br>
+            <input type="radio" name="option" id="op2">Show all prices above 5000 TND <br><br>
+            <input type="radio" name="option" id="op3">Show all prices less 5000 TND <br><br><br><br>
+
+            <input type="submit" class="validate-btn" value="Validate information" (click)="applyFilters()">
+
+
+          </nav>
+        </div>
+
+        <div class="main-content">
+          <div class="top-bar">
+            
+
+            <div class="article-table">
+              <div class="col-6 login-box">
+                  <h2>Request</h2>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Liens</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of links">
+                        <td>
+                          <a [routerLink]="['/demande', item.id]" >{{ item.piece_name }} &nbsp;{{ item.description }}</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+              </div>
+                
+            </div>
+    </div>
+  </div>
+</div>
+
+      
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+

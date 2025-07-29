@@ -1,0 +1,1 @@
+{"id":"","company":"","pieceNumber":"","pieceName":"","quantity":"","unitPrice":"","guarantees":"","paymentMethod":"","quote":""}

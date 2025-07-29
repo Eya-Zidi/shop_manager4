@@ -1,0 +1,21 @@
+/* Section footer */
+.footer {
+  background: rgba(255, 255, 255, 0);
+  color: #0a115d;
+  text-align: center;
+  padding: 20px;
+  margin-top: 100px;
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+}
+.footer h3 {
+  display: inline;
+  margin-top: 8px !important;
+}
+.footer p {
+  display: inline;
+  margin-top: 8px !important;
+}
+
+.footer h1 {
+  font-size: 1.6em;
+}

@@ -1,0 +1,72 @@
+<app-header-employee></app-header-employee>
+
+<div class="background">
+  <div class="row overlay">
+    <div class="col-6 login-box">
+      <h2>Détail de la Demande</h2>
+      <table class="table table-bordered">
+        <tr><th>ID</th><td>{{ devis.id }}</td></tr>
+        <tr><th>Nom</th><td>{{ devis.name }}</td></tr>
+        <tr><th>Prénom</th><td>{{ devis.lastName }}</td></tr>
+        <tr><th>Employee ID</th><td>{{ devis.employeeId }}</td></tr>
+        <tr><th>Téléphone</th><td>{{ devis.tel }}</td></tr>
+        <tr><th>Email</th><td>{{ devis.email }}</td></tr>
+        <tr><th>Date de la demande</th><td>{{ devis.requestDate }}</td></tr>
+        <tr><th>Numéro de demande</th><td>{{ devis.requestNumber }}</td></tr>
+        <tr><th>Lieu de départ</th><td>{{ devis.from_location }}</td></tr>
+        <tr><th>Lieu d’arrivée</th><td>{{ devis.to_location }}</td></tr>
+        <tr><th>Catégorie</th><td>{{ devis.categorie}}</td></tr>
+        <tr><th>Description</th><td>{{ devis.description }}</td></tr>
+        <tr><th>Date requise</th><td>{{ devis.requiredDate }}</td></tr>
+        <tr><th>Coût estimé</th><td>{{ devis.estimatedCost }}</td></tr>
+        <tr><th>Justification</th><td>{{ devis.justification }}</td></tr>
+        <tr><th>Entreprise</th><td>{{ devis.company }}</td></tr>
+        <tr><th>Nom de pièce</th><td>{{ devis.piece_name }}</td></tr>
+        <tr><th>Numéro de pièce</th><td>{{ devis.piece_number }}</td></tr>
+        <tr><th>Quantité</th><td>{{ devis.quantity }}</td></tr>
+        <tr><th>Prix unitaire</th><td>{{ devis.unit_price }}</td></tr>
+        <tr><th>Garantie</th><td>{{ devis.guarantees }}</td></tr>
+        <tr><th>Mode de paiement</th><td>{{ devis.payment_method }}</td></tr>
+
+   
+      </table>
+      <br><br><br>
+      <div class="btn">
+            <a href="#" class="link" (click)="openAcceptPopup($event)">Accept</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" class="link" (click)="openPopup($event)">Reject</a>
+      </div>
+    </div>
+
+
+    <!--  POPUP REFUS -->
+    <div class="popup" *ngIf="showRejectPopup">
+      <div class="popup-content">
+        <h4>Motif du refus</h4>
+        <textarea [(ngModel)]="reason" placeholder="Justification..."></textarea>
+        <div class="popup-buttons">
+          <button (click)="confirmReject()">Confirmer</button>
+          <button (click)="closePopup()">Annuler</button>
+        </div>
+      </div>
+    </div>
+
+    <!--  POPUP ACCEPT -->
+    <div class="popup" *ngIf="showAcceptPopup">
+      <div class="popup-content">
+        <h4>Motif d'acceptation</h4>
+        <textarea [(ngModel)]="reason" placeholder="Justification..."></textarea>
+        <div class="popup-buttons">
+          <button (click)="confirmAccept()">Confirmer</button>
+          <button (click)="closePopup()">Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+
+
+
+
+

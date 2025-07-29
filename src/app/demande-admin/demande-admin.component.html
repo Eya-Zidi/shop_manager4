@@ -1,0 +1,82 @@
+<app-header-employee></app-header-employee>
+
+<div class="background">
+  <div class="row overlay">
+    <div class="col-12 login-box">
+      <h2>Demandes avec le même numéro : {{ requestNumber }}</h2>
+
+      <!-- Section générale -->
+      <div *ngIf="devisList.length > 0">
+        <table class="table table-bordered">
+          <tr><th>ID</th><td>{{ devisList[0].id }}</td></tr>
+          <tr><th>Nom</th><td>{{ devisList[0].name }}</td></tr>
+          <tr><th>Prénom</th><td>{{ devisList[0].lastName }}</td></tr>
+          <tr><th>Employee ID</th><td>{{ devisList[0].employeeId }}</td></tr>
+          <tr><th>Téléphone</th><td>{{ devisList[0].tel }}</td></tr>
+          <tr><th>Email</th><td>{{ devisList[0].email }}</td></tr>
+          <tr><th>Catégorie</th><td>{{ devisList[0].categorie }}</td></tr>
+          <tr><th>Description</th><td>{{ devisList[0].description }}</td></tr>
+          <tr><th>Justification</th><td>{{ devisList[0].justification }}</td></tr>
+        </table>
+      </div>
+      <br><br><br>
+
+      <!-- Section par devis avec clic pour sélectionner -->
+      <div *ngFor="let devis of devisList" 
+           class="devis-card" 
+           [class.selected]="devis === selectedDevis" 
+           (click)="selectedDevis = devis" 
+           style="cursor:pointer;">
+        <table class="table table-bordered">
+          <tr><th>Date de la demande</th><td>{{ devis.requestDate }}</td></tr>
+          <tr><th>Lieu de départ</th><td>{{ devis.from_location }}</td></tr>
+          <tr><th>Lieu d’arrivée</th><td>{{ devis.to_location }}</td></tr>
+          <tr><th>Date requise</th><td>{{ devis.requiredDate }}</td></tr>
+          <tr><th>Coût estimé</th><td>{{ devis.estimatedCost }}</td></tr>
+          <tr><th>Entreprise</th><td>{{ devis.company }}</td></tr>
+          <tr><th>Nom de pièce</th><td>{{ devis.piece_name }}</td></tr>
+          <tr><th>Numéro de pièce</th><td>{{ devis.piece_number }}</td></tr>
+          <tr><th>Quantité</th><td>{{ devis.quantity }}</td></tr>
+          <tr><th>Prix unitaire</th><td>{{ devis.unit_price }}</td></tr>
+          <tr><th>Garantie</th><td>{{ devis.guarantees }}</td></tr>
+          <tr><th>Mode de paiement</th><td>{{ devis.payment_method }}</td></tr>
+        </table>
+      </div>
+
+      <!-- Boutons Accept / Reject hors cards, activés seulement si devis sélectionné -->
+      <div class="btn" *ngIf="selectedDevis" style="margin-top: 20px;">
+        <p>Devis sélectionné : {{ selectedDevis.id }} - {{ selectedDevis.name }}</p>
+        <a href="#" class="link" (click)="openAcceptPopup($event)">Accept</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" class="link" (click)="openPopup($event)">Reject</a>
+      </div>
+
+      <!-- POPUP REFUS -->
+      <div class="popup" *ngIf="showRejectPopup">
+        <div class="popup-content">
+          <h4>Motif du refus</h4>
+          <textarea [(ngModel)]="reason" placeholder="Justification..."></textarea>
+          <div class="popup-buttons">
+            <button (click)="confirmReject()">Confirmer</button>
+            <button (click)="closePopup()">Annuler</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- POPUP ACCEPT -->
+      <div class="popup" *ngIf="showAcceptPopup">
+        <div class="popup-content">
+          <h4>Motif d'acceptation</h4>
+          <textarea [(ngModel)]="reason" placeholder="Justification..."></textarea>
+          <div class="popup-buttons">
+            <button (click)="confirmAccept()">Confirmer</button>
+            <button (click)="closePopup()">Annuler</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
