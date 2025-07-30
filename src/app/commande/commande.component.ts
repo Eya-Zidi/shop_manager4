@@ -64,7 +64,7 @@ SupprimmerDemande(item: any) {
   const formData = new FormData();
   formData.append('id', item.id);
 
-  this.http.post<any>('http://localhost/ShopManager3/backend/uploads/reject-demande.php', formData)
+  this.http.post<any>('http://localhost/ShopManager3/backend/uploads/reject-demande-directeur.php', formData)
     .subscribe(response => {
       if(response.success) {
         alert('Votre demande est annuler');

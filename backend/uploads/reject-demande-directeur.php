@@ -32,7 +32,7 @@ try {
     }
 
 
-    $stmtUpdate = $pdo->prepare("UPDATE demande_achat SET situation = 'Responsable reject' WHERE id = ?");
+    $stmtUpdate = $pdo->prepare("UPDATE demande_achat SET situation = 'Directeur reject' WHERE id = ?");
     $success = $stmtUpdate->execute([$id]);
 
     echo json_encode([

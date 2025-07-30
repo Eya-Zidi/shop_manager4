@@ -8,11 +8,12 @@ import {DemandeAdminComponent } from './demande-admin/demande-admin.component';
 import { AcceptComponent } from './accept/accept.component';
 import { RequestRejectComponent } from './request-reject/request-reject.component'
 import { HistoryComponent } from './history/history.component';
-import { UpdateComponent } from './update/update.component';
+
 import { MainEmployeeComponent } from './main-employee/main-employee.component';
 import { CommandeComponent } from './commande/commande.component';
 import { ExempleComponent } from './exemple/exemple.component';
-import { FinanceComponent } from './finance/finance.component';
+import { TesterComponent } from './tester/tester.component';
+import { StockComponent } from './stock/stock.component';
 
 export const routes: Routes = [
     { path: '', component: HeaderComponent},
@@ -24,14 +25,15 @@ export const routes: Routes = [
    { path: 'accept', component: AcceptComponent },
    { path: 'history', component: HistoryComponent },
    { path: 'historique', component: RequestRejectComponent },
-
-    { path: 'commande', component: CommandeComponent },
+    { path: 'history', component: HistoryComponent },
+    { path: 'confirm', component: TesterComponent },
+    { path: 'Stock', component: StockComponent },
 
 
    { path: 'liste', component: ExempleComponent },
 
    { path: 'request_reject/:id', component: RequestRejectComponent },
-   {path: 'update/:id',component: UpdateComponent},
+
    {path: 'creat',component: MainEmployeeComponent},
    { path: 'demande/:id', component: DemandeAdminComponent },
 ];

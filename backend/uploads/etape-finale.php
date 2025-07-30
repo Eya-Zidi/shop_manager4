@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     try {
-        $stmt = $pdo->prepare("UPDATE demande_achat SET situation = 'Directeur Accept' WHERE id = ?");
+        $stmt = $pdo->prepare("UPDATE demande_achat SET situation = 'Votre Demande Accepter' WHERE id = ?");
         $stmt->execute([$id]);
 
         if ($stmt->rowCount() > 0) {

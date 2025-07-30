@@ -31,8 +31,8 @@ try {
         exit;
     }
 
-    // Mettre à jour la situation
-    $stmtUpdate = $pdo->prepare("UPDATE demande_achat SET situation = 'commande' WHERE id = ?");
+
+    $stmtUpdate = $pdo->prepare("UPDATE demande_achat SET situation = 'Responsable Accept' WHERE id = ?");
     $success = $stmtUpdate->execute([$id]);
 
     $stmt = $pdo->prepare("SELECT num FROM demande_achat WHERE id = ?");

@@ -4,10 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
-import { HeaderDirecteurComponent} from '../header-directeur/header-directeur.component';
+import { HeaderAdminComponent} from '../header-admin/header-admin.component';
 @Component({
   selector: 'app-request-reject',
-  imports: [CommonModule, RouterModule, HeaderDirecteurComponent, FormsModule],
+  imports: [CommonModule, RouterModule, HeaderAdminComponent, FormsModule],
   templateUrl: './request-reject.component.html',
   styleUrl: './request-reject.component.css'
 })

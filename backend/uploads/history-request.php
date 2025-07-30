@@ -6,7 +6,7 @@ header("Content-Type: application/json");
 require_once("../auth/connexion.php");
 
 try {
-    $stmtDevis = $pdo->query("SELECT * FROM demande_achat where situation = 'rejected' ORDER BY id DESC");
+    $stmtDevis = $pdo->query("SELECT * FROM demande_achat where situation = 'Directeur rejecte' and ituation = 'Responsable reject' ORDER BY id DESC");
     $devisList = $stmtDevis->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode([

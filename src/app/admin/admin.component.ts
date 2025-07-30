@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { HeaderDirecteurComponent} from '../header-directeur/header-directeur.component';
+import { HeaderAdminComponent} from '../header-admin/header-admin.component';
 import { MainAdminComponent} from '../main-admin/main-admin.component';
 import { FooterEmployeeComponent} from '../footer-employee/footer-employee.component';
 
@@ -10,7 +10,7 @@ import { FooterEmployeeComponent} from '../footer-employee/footer-employee.compo
 @Component({
   selector: 'app-admin',
   standalone: true, // si tu utilises Angular standalone
-  imports: [HeaderDirecteurComponent,MainAdminComponent,FooterEmployeeComponent],
+  imports: [HeaderAdminComponent,MainAdminComponent,FooterEmployeeComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })

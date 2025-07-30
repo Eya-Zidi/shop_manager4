@@ -43,9 +43,9 @@
                         <th>Remise</th>
                         <th>Prix Totale</th>
                         <th>TVA</th>
-                        <th>Situation</th>
 
-                        
+                        <th></th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -59,9 +59,13 @@
                         <td [ngClass]="getColorClass(item.situation)">{{ item.remise }} %</td>
                         <td [ngClass]="getColorClass(item.situation)">{{ item.p_totale }}</td>
                         <td [ngClass]="getColorClass(item.situation)">{{ item.tva }}</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.situation }}</td>
+
                         
-                  
+                        <td [ngClass]="getColorClass(item.situation)">
+                          <input type="button" value="Confirm" class="btn-confirme" (click)="confirmDemande(item)">
+                        </td>
+
+        
                       </tr>
                     </tbody>
 
