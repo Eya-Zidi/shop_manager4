@@ -21,7 +21,7 @@ try {
         exit;
     }
 
-    // Vérifier si la ligne existe
+
     $stmtCheck = $pdo->prepare("SELECT id, situation FROM demande_achat WHERE id = ?");
     $stmtCheck->execute([$id]);
     $row = $stmtCheck->fetch(PDO::FETCH_ASSOC);
@@ -31,7 +31,7 @@ try {
         exit;
     }
 
-    // Mettre à jour la situation
+
     $stmtUpdate = $pdo->prepare("UPDATE demande_achat SET situation = 'rejected' WHERE id = ?");
     $success = $stmtUpdate->execute([$id]);
 

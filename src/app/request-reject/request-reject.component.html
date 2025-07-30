@@ -1,45 +1,83 @@
-<div class="header">
-  <h1>
-    <img [src]="logo">
-    Phoenix Mecano Elcom
-  </h1>
-  <div class="nav">
-    <a href="/">Home</a>
-    <a href="/Sign">Sign up</a>
-    <a href="/contact">Contact</a>
-  </div>
-</div>
 
+<app-header-directeur></app-header-directeur>
 <div class="background">
-  <div class="row overlay">
-    <div class="col-6 login-box">
-      <h2>Détail de la Demande</h2>
-      <table class="table table-bordered">
-        <tr><th>ID</th><td>{{ devis.id }}</td></tr>
-        <tr><th>Nom</th><td>{{ devis.name }}</td></tr>
-        <tr><th>Prénom</th><td>{{ devis.lastName }}</td></tr>
-        <tr><th>Employee ID</th><td>{{ devis.employeeId }}</td></tr>
-        <tr><th>Téléphone</th><td>{{ devis.tel }}</td></tr>
-        <tr><th>Email</th><td>{{ devis.email }}</td></tr>
-        <tr><th>Date de la demande</th><td>{{ devis.requestDate }}</td></tr>
-        <tr><th>Numéro de demande</th><td>{{ devis.requestNumber }}</td></tr>
-        <tr><th>Lieu de départ</th><td>{{ devis.from_location }}</td></tr>
-        <tr><th>Lieu d’arrivée</th><td>{{ devis.to_location }}</td></tr>
-        <tr><th>Description</th><td>{{ devis.description }}</td></tr>
-        <tr><th>Date requise</th><td>{{ devis.requiredDate }}</td></tr>
-        <tr><th>Coût estimé</th><td>{{ devis.estimatedCost }}</td></tr>
-        <tr><th>Justification</th><td>{{ devis.justification }}</td></tr>
-        <tr><th>Entreprise</th><td>{{ devis.company }}</td></tr>
-        <tr><th>Nom de pièce</th><td>{{ devis.piece_name }}</td></tr>
-        <tr><th>Numéro de pièce</th><td>{{ devis.piece_number }}</td></tr>
-        <tr><th>Quantité</th><td>{{ devis.quantity }}</td></tr>
-        <tr><th>Prix unitaire</th><td>{{ devis.unit_price }}</td></tr>
-        <tr><th>Garantie</th><td>{{ devis.guarantees }}</td></tr>
-        <tr><th>Mode de paiement</th><td>{{ devis.payment_method }}</td></tr>
-      </table>
+  <div class="overlay">
+    <div class="row justify-content-center" style="margin-top: 20px; height:1000px;">
+      
+      
+
+      <div class="container correct">
+        <div class="sidebar">
+          <h2>Catégory :</h2>
+          <nav>
+            <input type="checkbox" name="catégorie" id="cat1">Pièce birotique <br> <br>
+            <input type="checkbox" name="catégorie" id="cat2">Accessoire et Connectivité <br> <br>
+            <input type="checkbox" name="catégorie" id="cat3">Pièce industrielle <br><br>
+            <input type="checkbox" name="catégorie" id="cat4">Pièce éléctroniquebr
+            <br>
+            <h2>Amount :</h2>
+            <input type="radio" name="option" id="op1"> Display all the prices <br><br>
+            <input type="radio" name="option" id="op2">Show all prices above 5000 TND <br><br>
+            <input type="radio" name="option" id="op3">Show all prices less 5000 TND <br><br><br><br>
+
+            <input type="submit" class="validate-btn" value="Validate information" (click)="applyFilters()">
+
+
+          </nav>
+        </div>
+
+        <div class="main-content">
+          <div class="top-bar">
+            
+
+                  <h2>Request</h2>
+                  <table *ngIf="links.length">
+                    <thead>
+                      <tr>
+                        <th>Numero Demande </th>
+                        <th>Réfèrences</th>
+                        <th>Désignation</th>
+                        <th>Catégorie</th>
+                        <th>Quantity</th>
+                        <th>Prix Unitaire</th>
+                        <th>Remise</th>
+                        <th>Prix Totale</th>
+                        <th>TVA</th>
+                        <th>Situation</th>
+
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of links">
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.num }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.reference }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.libelles }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.categorie }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.quantity }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.p_unitaire }} TND</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.remise }} %</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.p_totale }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.tva }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.situation }}</td>
+                        
+                  
+                      </tr>
+                    </tbody>
+
+                  </table>
+
+            <br><br><br>
+            </div>
+          </div>
+        </div>
+
+      
+
     </div>
-
-    
-
   </div>
 </div>
+
+
+
+

@@ -4,12 +4,10 @@ header("Access-Control-Allow-Credentials: true");
 header("Content-Type: application/json");
 
 require_once("../auth/connexion.php");
-$id = $_GET['id'] ?? null;
 
 try {
-    $stmt = $pdo->prepare("SELECT * FROM demande_devis WHERE situation = 'rejected' and id = ? ");
-    $stmt->execute([$id]);
-    $devisList = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmtDevis = $pdo->query("SELECT * FROM demande_achat where situation = 'rejected' ORDER BY id DESC");
+    $devisList = $stmtDevis->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode([
         "success" => true,

@@ -34,37 +34,39 @@
                   <table *ngIf="links.length">
                     <thead>
                       <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Name of Company</th>
-                        <th>Category</th>
+                        <th>Numero Demande </th>
+                        <th>Réfèrences</th>
+                        <th>Désignation</th>
+                        <th>Catégorie</th>
                         <th>Quantity</th>
-                        <th>Unit Price</th>
-                        <th>Estimated  Cost</th>
-                        <th>Guarantees</th>
-                        <th>Payment Methode</th>
-                        <th>Situation</th>
-                        <th>Date Request</th>
-                        <th>Date Required</th>
+                        <th>Prix Unitaire</th>
+                        <th>Remise</th>
+                        <th>Prix Totale</th>
+                        <th>TVA</th>
+
+                        <th></th>
                         <th></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let item of links">
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.id }}</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.piece_name }}</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.company }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.num }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.reference }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.libelles }}</td>
                         <td [ngClass]="getColorClass(item.situation)">{{ item.categorie }}</td>
                         <td [ngClass]="getColorClass(item.situation)">{{ item.quantity }}</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.unit_price }} TND</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.estimatedCost }} TND</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.guarantees }}</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.payment_method }}</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.situation }}</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.requestDate}}</td>
-                        <td [ngClass]="getColorClass(item.situation)">{{ item.requiredDate}}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.p_unitaire }} TND</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.remise }} %</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.p_totale }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.tva }}</td>
+
+                        
                         <td [ngClass]="getColorClass(item.situation)">
-                          <input type="button" value="Confirm" class="btn-confirme" (click)="confirmCommande(item)">
+                          <input type="button" value="Confirm" class="btn-confirme" (click)="confirmDemande(item)">
+                        </td>
+
+                        <td [ngClass]="getColorClass(item.situation)">
+                          <input type="button" value="Supprimer" class="btn-confirme" (click)="SupprimmerDemande(item)">
                         </td>
                       </tr>
                     </tbody>

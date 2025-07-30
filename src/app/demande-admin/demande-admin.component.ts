@@ -118,7 +118,7 @@ export class DemandeAdminComponent {
       'TVA'
     ]];
 
-    // 📦 One row of data
+    //  One row of data
     const data = [[
       String(dev.reference),
       
@@ -130,16 +130,16 @@ export class DemandeAdminComponent {
       String(dev.TVA)
     ]];
 
-    // 📄 Add table below title
+    //  Add table below title
     autoTable(doc, {
       head: head,
       body: data,
-      startY: 30, // Push below the title
+      startY: 30, 
       styles: { fontSize: 10 },
       headStyles: { fillColor: [22, 160, 133] } // Optional: green header
     });
 
-    // 💾 Save the PDF
+    //  Save the PDF
     doc.save('devis.pdf');
 
   }
@@ -162,17 +162,17 @@ export class DemandeAdminComponent {
             selectedDevisId: this.selectedDevis.id
           };
 
-          this.http.post('http://localhost/ShopManager3/backend/uploads/accept-mail.php', payload)
+          /*this.http.post('http://localhost/ShopManager3/backend/uploads/accept-mai.php', payload)
             .subscribe(response => {
               alert('Demande acceptée et email envoyé.');     
               this.showAcceptPopup = false;
               this.reason = '';
             }, error => {
               alert('Erreur lors de l\'acceptation ou de l\'envoi de l\'email.');
-            });
+            });*/
         },
         err => {
-          alert('Erreur lors de la mise à jour : ' + (err.error?.message || 'Erreur inconnue'));
+          //alert('Erreur lors de la mise à jour : ' + (err.error?.message || 'Erreur inconnue'));
         }
       );
   }

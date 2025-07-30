@@ -32,7 +32,7 @@ export class CommandeComponent {
     this.http.get<any>('http://localhost/ShopManager3/backend/uploads/commande.php').subscribe(response => {
       if (response.success) {
 
-        this.allDevis = response.devis.filter((item: any) => this.isDateExpired(item.requiredDate));
+        this.allDevis = response.devis;
         this.links = [...this.allDevis];
       } else {
         console.error('Erreur backend:', response.message);
@@ -42,14 +42,32 @@ export class CommandeComponent {
     });
   }
 
-  confirmCommande(item: any) {
+  confirmDemande(item: any) {
   const formData = new FormData();
   formData.append('id', item.id);
 
   this.http.post<any>('http://localhost/ShopManager3/backend/uploads/confirmStock.php', formData)
     .subscribe(response => {
       if(response.success) {
-        alert('Your order has been received and is now in stock');
+        alert('votre Demande est Accepter');
+        this.loadAll(); 
+      } else {
+        alert('Echec' + response.message);
+      }
+    }, error => {
+      alert('Erreur HTTP : ' + error.message);
+    });
+}
+
+
+SupprimmerDemande(item: any) {
+  const formData = new FormData();
+  formData.append('id', item.id);
+
+  this.http.post<any>('http://localhost/ShopManager3/backend/uploads/reject-demande.php', formData)
+    .subscribe(response => {
+      if(response.success) {
+        alert('Votre demande est annuler');
         this.loadAll(); 
       } else {
         alert('Echec' + response.message);

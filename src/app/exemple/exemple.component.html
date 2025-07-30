@@ -1,73 +1,87 @@
-<div class="container">
-  <div class="sidebar">
-    <h2>D-CLIC</h2>
-    <nav>
-      <a href="#">Dashboard</a>
-      <a href="#">Vente</a>
-      <a href="#">Client</a>
-      <a class="active" href="#">Article</a>
-      <a href="#">Fournisseur</a>
-      <a href="#">Commandes</a>
-      <a href="#">Catégorie</a>
-      <a href="#">Analyses</a>
-      <a href="#">Stock</a>
-      <a href="#">Tout les commandes</a>
-      <a href="#">Utilisateur</a>
-      <a href="#">Configuration</a>
-    </nav>
-  </div>
+<app-header-directeur></app-header-directeur>
+<div class="background">
+  <div class="overlay">
+    <div class="row justify-content-center" style="margin-top: 20px; height:1000px;">
+      
+      
 
-  <div class="main-content">
-    <div class="top-bar">
-      <h2>Article</h2>
-      <input type="text" placeholder="Recherche..." />
-      <button class="search-btn">🔍</button>
-    </div>
+      <div class="container correct">
+        <div class="sidebar">
+          
+          <nav>
+            <h2>Situation :</h2>
 
-    <div class="content-wrapper">
-      <form class="article-form">
-        <input type="text" placeholder="Veuillez saisir le nom" />
-        <select>
-          <option>--Choisir une catégorie--</option>
-        </select>
-        <input type="number" placeholder="Veuillez saisir la quantité" />
-        <input type="number" placeholder="Veuillez saisir le prix" />
-        <input type="datetime-local" />
-        <input type="datetime-local" />
-        <input type="file" />
-        <button type="submit" class="validate-btn">Valider</button>
-      </form>
+            <input type="radio" name="option" id="option1"> pending <br><br>
+            <input type="radio" name="option" id="option2">commande <br><br>
+            <input type="radio" name="option" id="option3">stock <br><br>
+            <input type="radio" name="option" id="option4">rejected<br><br>
 
-      <div class="article-table">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nom article</th>
-              <th>Nombre de pièces</th>
-              <th>Quantité</th>
-              <th>Prix unitaire</th>
-              <th>Méthode de paiement</th>
-              <th>Garantie</th>
-              <th>Situation</th>
-              <th>Nom de société</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngIf="devis">
-              <td>{{ devis.id }}</td>
-              <td>{{ devis.piece_name }}</td>
-              <td>{{ devis.piece_number }}</td>
-              <td>{{ devis.quantity }}</td>
-              <td>{{ devis.unit_price }}</td>
-              <td>{{ devis.payment_method }}</td>
-              <td>{{ devis.guarantees }}</td>
-              <td>{{ devis.situation }}</td>
-              <td>{{ devis.company }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            <h2>Catégory :</h2>
+            <input type="checkbox" name="catégorie" id="cat1">Pièce birotique <br> <br>
+            <input type="checkbox" name="catégorie" id="cat2">Accessoire et Connectivité <br> <br>
+            <input type="checkbox" name="catégorie" id="cat3">Pièce industrielle <br><br>
+            <input type="checkbox" name="catégorie" id="cat4">Pièce éléctronique 
+            <br>
+            <h2>Amount :</h2>
+            <input type="radio" name="option" id="op1"> Display all the prices <br><br>
+            <input type="radio" name="option" id="op2">Show all prices above 5000 TND <br><br>
+            <input type="radio" name="option" id="op3">Show all prices less 5000 TND <br><br><br><br>
+
+            <input type="submit" class="validate-btn" value="Validate information" (click)="applyFilters()">
+
+
+          </nav>
+        </div>
+
+        <div class="main-content">
+          <div class="top-bar">
+            
+
+                  <h2>Request</h2>
+                  <table *ngIf="links.length">
+                    <thead>
+                      <tr>
+                        <th>Demande d'achat N° </th>
+                        <th>Réfèrence</th>
+                        <th>Désignation</th>
+                        <th>Quantité</th>
+                        <th>Prix Unitaire</th>
+                        <th>Remise</th>
+                        <th>Montant HT</th>
+                        <th>TVA</th>
+                        <th>Situation</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of links">
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.num }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.reference }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.libelles}}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.quantity }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.p_unitaire }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.remise }} TND</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.p_totale}} TND</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.TVA }}</td>
+                        <td [ngClass]="getColorClass(item.situation)">{{ item.situation}}</td>
+
+                         
+                      </tr>
+                    </tbody>
+
+                  </table>
+
+            <br><br><br>
+            </div>
+          </div>
+        </div>
+
+      
+
     </div>
   </div>
 </div>
+
+
+
+

@@ -35,6 +35,13 @@ try {
     $stmtUpdate = $pdo->prepare("UPDATE demande_achat SET situation = 'commande' WHERE id = ?");
     $success = $stmtUpdate->execute([$id]);
 
+    $stmt = $pdo->prepare("SELECT num FROM demande_achat WHERE id = ?");
+    $stmt->execute([$id]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $num = $row['num'];
+    $stmt = $pdo->prepare("DELETE FROM demande_achat WHERE num = ? and situation='pending' ");
+    $stmt->execute([$num]);
+ 
     echo json_encode([
         'success' => $success,
         'message' => $success ? 'Demande accepter' : 'Erreur lors de l acceptation.'
