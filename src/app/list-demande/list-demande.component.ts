@@ -23,7 +23,7 @@ export class ListDemandeComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {                  
     this.loadAll();
   }
 
@@ -45,9 +45,9 @@ export class ListDemandeComponent implements OnInit {
   
 
   getColorClass(situation: string): string {
-    if (situation === 'rejected' || situation === 'rejectedDirecteur') return 'cell-rejected';
+    if (situation === 'Responsable reject' || situation === 'Directeur reject') return 'cell-rejected';
     if (situation === 'pending') return 'cell-pending';
-    if (situation === 'commande') return 'cell-commande';
+    if (situation === 'Votre Demande Accepter') return 'cell-commande';
     return '';
   }
 }
