@@ -5,10 +5,10 @@ import { AdminComponent} from './admin/admin.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { FooterComponent } from './footer/footer.component';
 import {DemandeAdminComponent } from './demande-admin/demande-admin.component';
-import { AcceptComponent } from './accept/accept.component';
+
 import { RequestRejectComponent } from './request-reject/request-reject.component'
 import { HistoryComponent } from './history/history.component';
-
+import { UpdateComponent } from './update/update.component';
 import { MainEmployeeComponent } from './main-employee/main-employee.component';
 import { CommandeComponent } from './commande/commande.component';
 import { ExempleComponent } from './exemple/exemple.component';
@@ -22,7 +22,7 @@ export const routes: Routes = [
    { path: 'finance', component: CommandeComponent },
    { path: 'employee/:id', component: EmployeeComponent },
    { path: 'contact', component: FooterComponent },
-   { path: 'accept', component: AcceptComponent },
+    { path: 'update-demande/:id', component: UpdateComponent },
    { path: 'history', component: HistoryComponent },
    { path: 'historique', component: RequestRejectComponent },
     { path: 'history', component: HistoryComponent },

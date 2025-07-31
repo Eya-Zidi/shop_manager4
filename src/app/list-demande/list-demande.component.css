@@ -858,3 +858,34 @@ input[type="button"]:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0,123,255,0.5);
 }
+
+
+
+
+
+a {
+  text-decoration: none;
+}
+
+a.btn-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4375ea; /* Vert */
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+a.btn-link:hover {
+  background-color: #218838;
+  color: white;
+}
+
+
+
+
+
+

@@ -1,0 +1,111 @@
+<header class="header">
+  <img src=[logo] alt="Logo" class="logo" />
+  <h1 class="brand">Phoenix Mecano Elcom</h1>
+  <nav class="nav-links">
+    <a href="/">Home</a>
+    <a href="/history">historique</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
+<div class="background">
+
+
+  <div class="row overlay">
+    
+
+    <div class="col-6 login-box">
+      <h2>Employee Information</h2>
+      <form (ngSubmit)="UpdateDemande()">
+              <div class="form-row">
+
+          <div class="form-group">
+            <label for="reference"> Reference :</label>
+            <input type="text" id="reference" name="reference" [(ngModel)]="demandeForm.reference" required />
+          </div>
+
+          
+
+        </div>
+
+
+          <div class="form-row">
+
+          <div class="form-group">
+            <label for="Libelles"> Libelles :</label>
+            <input type="textarea" id="libelles" name="libelles" [(ngModel)]="demandeForm.libelles" required />
+          </div>
+
+          <label for="Catégorie">Catégorie</label>
+          <select id="Catégorie" name="Categorie" [(ngModel)]="demandeForm.categorie" required>
+            <option value="">Select</option>
+            <option value="pièce birotique">pièce birotique</option>
+            <option value="Accessoires et connectivité">Accessoires et connectivité</option>
+            <option value="pièce industielle">pièce industielle</option>
+            <option value="pièce élèctronique">pièce élèctronique</option>
+          </select>
+
+        </div>
+
+        <div class="form-row">
+          
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" [(ngModel)]="demandeForm.quantity" required />
+          </div>
+
+          
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="p_unitaire">Prix Unitaire</label>
+            <input type="number" id="p_unitaire" name="p_unitaire" [(ngModel)]="demandeForm.p_unitaire" required />
+          </div>
+
+          <div class="form-group">
+            <label for="p_totale">Prix Totale</label>
+            <input type="number" id="p_totale" name="p_totale" [(ngModel)]="demandeForm.p_totale" required />
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="remise">Remise :</label>
+            <input type="number" id="remise" name="remise" [(ngModel)]="demandeForm.remise" required />
+          </div>
+
+          <div class="form-group">
+            <label for="TVA">TVA :</label>
+            <input type="number" id="tva" name="tva" [(ngModel)]="demandeForm.tva" required />
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <button type="submit" class="submit-btn" >Update Request</button>
+
+        </div>
+
+      </form>
+    </div>
+
+    <div class="popup" *ngIf="showPopup">
+          <div class="popup-content">
+            <h4>Motif du modification</h4>
+            <textarea [(ngModel)]="reason" placeholder="Écrivez votre justification ici..."></textarea>
+            <div class="popup-buttons">
+              <button >Confirmer</button>
+              <button >Annuler</button>
+            </div>
+          </div>
+        </div>
+
+    
+  </div>
+
+</div>

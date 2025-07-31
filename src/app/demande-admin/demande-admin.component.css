@@ -486,3 +486,28 @@ a.link:hover {
   border-color: #007bff;
   background-color: #e7f1ff;
 }
+/*-----------------------------------------------------------------------*/
+/*link*/
+
+a {
+  color: #007BFF;          
+  text-decoration: none;    
+  transition: color 0.3s;   
+  cursor: pointer;   
+  padding-right: 50px;       
+}
+
+
+a:hover {
+  color: #0056b3;           
+  text-decoration: underline; 
+}
+
+a:visited {
+  color: #6b1506;           
+}
+
+
+a:active {
+  color: #FF0000;           
+}

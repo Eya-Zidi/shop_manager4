@@ -23,6 +23,7 @@ export class DemandeAdminComponent {
   devis: any = {};
   num: string = '';
   reason = '';
+  showSecondDiv = false;
 
   showRejectPopup = false;
   showAcceptPopup = false;
@@ -162,17 +163,10 @@ export class DemandeAdminComponent {
             selectedDevisId: this.selectedDevis.id
           };
 
-          /*this.http.post('http://localhost/ShopManager3/backend/uploads/accept-mai.php', payload)
-            .subscribe(response => {
-              alert('Demande acceptée et email envoyé.');     
-              this.showAcceptPopup = false;
-              this.reason = '';
-            }, error => {
-              alert('Erreur lors de l\'acceptation ou de l\'envoi de l\'email.');
-            });*/
+          
         },
         err => {
-          //alert('Erreur lors de la mise à jour : ' + (err.error?.message || 'Erreur inconnue'));
+         
         }
       );
   }

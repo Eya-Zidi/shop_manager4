@@ -11,7 +11,7 @@ try {
     $stmt->execute([$id]);
     $user = $stmt->fetch();
     $email= $user['email'];
-    $stmtDevis = $pdo->prepare("SELECT * FROM demande_achat where email = ? ORDER BY id DESC");
+    $stmtDevis = $pdo->prepare("SELECT * FROM demande_achat where  email = ? ORDER BY id DESC");
     $stmtDevis->execute([$email]);
     $devisList = $stmtDevis->fetchAll(PDO::FETCH_ASSOC);
     

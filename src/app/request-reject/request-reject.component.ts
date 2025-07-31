@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
 import { HeaderAdminComponent} from '../header-admin/header-admin.component';
 @Component({
-  selector: 'app-request-reject',
+  selector: 'app-stock',
   imports: [CommonModule, RouterModule, HeaderAdminComponent, FormsModule],
   templateUrl: './request-reject.component.html',
   styleUrl: './request-reject.component.css'
@@ -72,7 +72,7 @@ export class RequestRejectComponent {
   getColorClass(situation: string): string {
     if (situation === 'rejected' || situation === 'rejectedDirecteur') {
       return 'cell-commande';
-    } else if (situation === 'pending') {
+    } else if (situation === 'Directeur rejecte') {
       return 'cell-pending';
     } else if (situation === 'commande') {
       return 'cell-commande';
