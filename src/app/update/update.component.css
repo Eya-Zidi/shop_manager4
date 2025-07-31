@@ -21,7 +21,7 @@
 }
 
 .brand {
-  color: darkred;
+  color: rgb(0, 9, 139);
   font-size: 1.8rem;
   font-weight: bold;
   margin-left: 10px;
@@ -30,7 +30,7 @@
 .nav-links a {
   margin-left: 20px;
   text-decoration: none;
-  color: darkred;
+  color: rgb(0, 9, 139);
   font-weight: bold;
 }
 
@@ -66,7 +66,7 @@
 .login-box h2 {
   margin-bottom: 20px;
   font-size: 1.5rem;
-  color: #b30000;
+  color: rgb(0, 9, 139);
 }
 
 .login-box label {
@@ -86,7 +86,7 @@
 }
 
 .login-box button {
-  background-color: #8b0000;
+  background-color: rgb(0, 9, 139);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -96,14 +96,14 @@
 }
 
 .login-box button:hover {
-  background-color: #a00000;
+  background-color: rgb(0, 9, 139);
 }
 
 /* Footer */
 .footer {
   text-align: center;
   padding: 20px;
-  color: red;
+  color: rgb(0, 9, 139);
   background-color: white;
   font-size: 1.1rem;
 }
@@ -201,7 +201,7 @@ textarea {
 }
 
 .popup-buttons button:first-child {
-  background-color: #dc3545; /* rouge pour confirmer le refus */
+  background-color: rgb(0, 9, 139); /* rouge pour confirmer le refus */
   color: white;
 }
 

@@ -442,6 +442,7 @@ a.link:hover {
   margin-top: 30px;
   padding: 20px;
   border-top: 2px solid #ccc;
+  
 }
 
 .button-group-global h4 {
@@ -489,25 +490,3 @@ a.link:hover {
 /*-----------------------------------------------------------------------*/
 /*link*/
 
-a {
-  color: #007BFF;          
-  text-decoration: none;    
-  transition: color 0.3s;   
-  cursor: pointer;   
-  padding-right: 50px;       
-}
-
-
-a:hover {
-  color: #0056b3;           
-  text-decoration: underline; 
-}
-
-a:visited {
-  color: #6b1506;           
-}
-
-
-a:active {
-  color: #FF0000;           
-}

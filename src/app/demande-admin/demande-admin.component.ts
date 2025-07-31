@@ -82,12 +82,12 @@ export class DemandeAdminComponent {
           this.http.post('http://localhost/ShopManager3/backend/uploads/reject-mail.php', payload)
             .subscribe(
               response => {
-                alert('Demande rejetée et email envoyé avec succès.');
+                alert('Demande rejetée, mais erreur lors de l\'envoi de l\'email.');
                 this.showRejectPopup = false;
                 this.reason = '';
               },
               error => {
-                alert('Demande rejetée, mais erreur lors de l\'envoi de l\'email.');
+                alert('Demande rejetée et email envoyé avec succès.');
               }
             );
         },

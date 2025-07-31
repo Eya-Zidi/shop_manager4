@@ -25,13 +25,13 @@ try {
     $quantity = $_POST['quantity'] ?? '';
 
 
-    if (!$id) {
+    if ($id==null) {
         echo json_encode(['success' => false, 'message' => 'ID manquant']);
         exit;
     }
 
 
-    $stmt = $pdo->prepare("UPDATE demande_devis SET 
+    $stmt = $pdo->prepare("UPDATE demande_achat SET 
         reference = ?, 
         libelles = ?, 
         remise = ?, 
@@ -39,7 +39,7 @@ try {
         p_totale = ?, 
         p_unitaire = ?, 
         categorie = ?, 
-        quantity_location = ?, 
+        quantity = ?
 
         WHERE id = ?");
 

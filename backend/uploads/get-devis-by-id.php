@@ -23,7 +23,7 @@ try {
 
     $num = $row['num'];
 
-    // Récupérer toutes les demandes avec le même num
+   
     $stmt = $pdo->prepare("SELECT * FROM demande_achat WHERE num = ?");
     $stmt->execute([$num]);
     $devisList = $stmt->fetchAll(PDO::FETCH_ASSOC);

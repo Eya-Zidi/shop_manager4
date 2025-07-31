@@ -5,11 +5,12 @@ import { DevisService } from '../services/devis.service';
 import { DemandeService } from '../services/demande.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { HeaderEmployeeComponent } from '../header-employee/header-employee.component';
 
 @Component({
   selector: 'app-update',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule,HeaderEmployeeComponent],
   providers: [DevisService, DemandeService],
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.css']
@@ -43,7 +44,7 @@ export class UpdateComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id') || '';
     console.log('ID récupéré depuis l’URL:', this.id);
     if (this.id) {
-      this.loadExistingData2(this.id);
+      //this.loadExistingData2(this.id);
     }
   }
 
@@ -76,17 +77,17 @@ export class UpdateComponent implements OnInit {
     formData.append('id', this.id); 
 
     formData.append('reference', this.demandeForm.reference);
-    formData.append('libelles', this.demandeForm.libelles);
+    formData.append('libelles', this.demandeForm.libelles);   
     formData.append('remise', this.demandeForm.remise);
     formData.append('tva', this.demandeForm.tva);
     formData.append('p_totale', this.demandeForm.p_totale);
     formData.append(' p_unitaire', this.demandeForm. p_unitaire);
-    formData.append('categorie', this.demandeForm.categorie);
+    formData.append('categorie', this.demandeForm.categorie);    
     formData.append('quantity', this.demandeForm.quantity);
 
    
 
-    this.http.post<any>('http://localhost/ShopManager3/backend/uploads/update-demande.php', formData)
+    this.http.post<any>('http://localhost/ShopManager3/backend/uploads/updateDemande.php', formData)
       .subscribe(
         (res) => {
           alert(res.message || 'Demande mise à jour avec succès.');

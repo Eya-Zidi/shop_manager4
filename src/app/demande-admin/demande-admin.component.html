@@ -3,51 +3,46 @@
 <div class="background">
   <div class="row" style="display: flex; flex-wrap: wrap;">
     
-
+    <!-- Bloc gauche -->
     <div class="overlay" style="width: 48%; margin-right: 2%;">
       <div class="login-box">
         <h2>Demandes avec le même numéro : {{ num }}</h2>
-
 
         <div *ngIf="devisList.length > 0">
           <table class="table table-bordered">
             <tr><th>Matricule</th><td>{{ devisList[0].mtricule }}</td></tr>
             <tr><th>Nom</th><td>{{ devisList[0].name }}</td></tr>
-            <tr><th>Prenom</th><td>{{ devisList[0].lastName }}</td></tr>
-            <tr><th>Tel</th><td>{{ devisList[0].tel}}</td></tr>
+            <tr><th>Prénom</th><td>{{ devisList[0].lastName }}</td></tr>
+            <tr><th>Téléphone</th><td>{{ devisList[0].tel }}</td></tr>
             <tr><th>Email</th><td>{{ devisList[0].email }}</td></tr>
           </table>
         </div>
 
-        <br><br><br>
-
+        <br><br>
 
         <div *ngFor="let devis of devisList; let i = index"
-            class="devis-card" 
-            [class.selected]="devis === selectedDevis" 
-            (click)="selectedDevis = devis" 
-            style="cursor:pointer;">
+             class="devis-card"
+             [class.selected]="devis === selectedDevis"
+             (click)="selectedDevis = devis"
+             style="cursor: pointer;">
           <p>
-            <a href="#" (click)="showSecondDiv = true; $event.preventDefault()">devis {{i+1}}</a>
-            <button (click)="exportPDF(i)">Voir PDF</button>
+            <button class="btn btn-link" (click)="showSecondDiv = true">Devis {{ i + 1 }}</button>
+            <button class="btn btn-secondary" (click)="exportPDF(i)">Voir PDF</button>
           </p>
-         
         </div>
 
-       
-        <div class="btn" *ngIf="selectedDevis" style="margin-top: 20px;">
+        <div *ngIf="selectedDevis" class="btn" style="margin-top: 20px;">
           <p>Devis sélectionné : {{ selectedDevis.id }} - {{ selectedDevis.name }}</p>
-          <a href="#" class="link" (click)="openAcceptPopup($event)">Accept</a>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href="#" class="link" (click)="openPopup($event)">Reject</a>
+          <button class="btn btn-success" (click)="openAcceptPopup($event)">Accepter</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-danger" (click)="openPopup($event)">Refuser</button>
         </div>
       </div>
     </div>
 
-    
+    <!-- Bloc droit -->
     <div class="overlay" *ngIf="showSecondDiv" style="width: 48%;">
       <div class="login-box">
-        
         <p><strong>Référence :</strong> {{ selectedDevis?.reference }}</p>
         <p><strong>Désignation :</strong> {{ selectedDevis?.libelles }}</p>
         <p><strong>Quantité :</strong> {{ selectedDevis?.quantity }}</p>
@@ -58,16 +53,30 @@
       </div>
     </div>
 
-     <div class="popup" *ngIf="showRejectPopup">
-          <div class="popup-content">
-            <h4>Motif du refus</h4>
-            <textarea [(ngModel)]="reason" placeholder="Justification..."></textarea>
-            <div class="popup-buttons">
-              <button (click)="confirmReject()">Confirmer</button>
-              <button (click)="closePopup()">Annuler</button>
-            </div>
-          </div>
+
+    <div class="popup" *ngIf="showAcceptPopup">
+      <div class="popup-content">
+        <h4>Motif d'acceptation</h4>
+        <textarea [(ngModel)]="reason" placeholder="Justification..."></textarea>
+        <div class="popup-buttons">
+          <button class="btn btn-primary" (click)="confirmAccept()">Confirmer</button>
+          <button class="btn btn-secondary" (click)="closePopup()">Annuler</button>
         </div>
+      </div>
+    </div>
+
+
+    <div class="popup" *ngIf="showRejectPopup">
+      <div class="popup-content">
+        <h4>Motif du refus</h4>
+        <textarea [(ngModel)]="reason" placeholder="Justification..."></textarea>
+        <div class="popup-buttons">
+          <button class="btn btn-primary" (click)="confirmReject()">Confirmer</button>
+          <button class="btn btn-secondary" (click)="closePopup()">Annuler</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
