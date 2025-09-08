@@ -148,25 +148,32 @@ export class DemandeAdminComponent {
 
   confirmAccept() {
     const formData = new FormData();
-    formData.append('id', this.selectedDevis.id);
-
+    formData.append('id', this.id);
 
     this.http.post<any>('http://localhost/ShopManager3/backend/uploads/accept-demande.php', formData)
       .subscribe(
         res => {
           const payload = {
-            id2: this.id,
-            id: this.selectedDevis.id,
+            id: this.id,
             reason: this.reason,
             email: this.devis.email,
-            name: this.devis.name,
-            selectedDevisId: this.selectedDevis.id
+            name: this.devis.name
           };
 
-          
+          this.http.post('http://localhost/ShopManager3/backend/uploads/accept-mail.php', payload)
+            .subscribe(
+              response => {
+                alert('Demande rejetée, mais erreur lors de l\'envoi de l\'email.');
+                this.showRejectPopup = false;
+                this.reason = '';
+              },
+              error => {
+                alert('Demande rejetée et email envoyé avec succès.');
+              }
+            );
         },
         err => {
-         
+          alert('Erreur lors de la mise à jour : ' + (err.error?.message || 'Erreur inconnue'));
         }
       );
   }
